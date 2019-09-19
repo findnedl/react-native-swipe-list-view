@@ -6,13 +6,11 @@ import {
 	AppRegistry,
 	Dimensions,
 	Image,
-	ListView,
 	StyleSheet,
 	Text,
 	TouchableOpacity,
 	TouchableHighlight,
 	View,
-	ListViewDataSource
 } from 'react-native';
 
 import { SwipeListView, SwipeRow } from './';
@@ -34,12 +32,11 @@ interface State {
 }
 
 class App extends Component<{}, State> {
-	ds: ListViewDataSource;
+	ds: any;
 	rowSwipeAnimatedValues: { [key: string]: Animated.Value; };
 
 	constructor(props) {
 		super(props);
-		this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 		this.state = {
 			listType: 'FlatList',
 			listViewData: Array(20).fill('').map((_, i) => ({ key: `${i}`, text: `item #${i}` })),
